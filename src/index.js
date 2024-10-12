@@ -1,20 +1,44 @@
 alert("I hope you have all your ingredients! Are you ready to cook?");
 
-        function generateRecipe(event) {
-            event.preventDefault();
+function displayRecipe(response) {
+    const typewriter = new Typewriter('#recipe', {
+        autoStart: true,
+        delay: 50,
+        cursor: "",
+    });
 
-            alert("Generating recipe... please wait");
+    
+    if (response.data && response.data.answer) {
+        typewriter
+            .typeString(response.data.answer)
+            .start();
+    } else {
+        console.error("No recipe found in the response.");
+        alert("Sorry, no recipe was found. Please try another ingredient.");
+    }
+}
 
-            const typewriter = new Typewriter('#recipe', {
-                autoStart: true,
-                delay: 50, 
-                cursor: "",
-            });
+function generateRecipe(event) {
+    event.preventDefault();
 
-            typewriter
-                .typeString('Top-notch choice. 🥑 Just grab some bread, toast it up nice and crisp, then mash up a ripe avocado with a squeeze of lemon juice, salt, and pepper. Spread the avocado mix on your toast and you are good to go. Maybe add a poached egg or some chili flakes if you’re feeling fancy. Enjoy!')
-                .start(); 
-        }
+    alert("Generating recipe... please wait");
 
-        let recipeFormElement = document.querySelector("#recipe-generator-form");
-        recipeFormElement.addEventListener("submit", generateRecipe);
+    const apiKey = "307c2540doab8f13b37004f7fdft20c1";
+    const ingredient = document.querySelector("#ingredient-input").value;
+    const prompt = `Suggest a simple recipe using ${ingredient}.`;
+    const context = "You are a hungry person looking for a quick recipe suggestion.";
+    const apiURL = `https://api.shecodes.io/ai/v1/generate?prompt=${encodeURIComponent(prompt)}&context=${encodeURIComponent(context)}&key=${apiKey}`;
+
+    axios.get(apiURL)
+        .then(response => {
+            console.log(response); 
+            displayRecipe(response);
+        })
+        .catch(error => {
+            console.error("Error fetching recipe:", error);
+            alert("Sorry, there was an error generating the recipe. Please try again.");
+        });
+}
+
+let recipeFormElement = document.querySelector("#recipe-generator-form");
+recipeFormElement.addEventListener("submit", generateRecipe);
