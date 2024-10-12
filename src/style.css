@@ -1,6 +1,5 @@
 body {
-    background-image: url('images/OIP(7).jpeg');
-   
+    background-image: url('https://cdn.pixabay.com/photo/2016/12/26/17/28/spaghetti-1932466_1280.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -16,7 +15,7 @@ a {
 
 .container {
     margin: 120px auto;
-    max-width: 600px;
+    max-width: 700px;
 }
 
 header {
@@ -25,11 +24,15 @@ header {
 
 h1 {
     text-align: center;
-    font-size: 38px;
+    background-color: rgb(202, 194, 194);
+    font-size:60px;
+    margin-top: 10px;
     line-height: 1.5;
-    color: rgb(100, 98, 96);
+    border-radius: 20px;
     font-weight: bold;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: rgb(253, 251, 249);
+    font-weight: 100;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-seri
 }
 
 form {
@@ -76,4 +79,5 @@ footer {
     font-size: 12px;
     text-align: center;
     margin-top: 30px;
+    color: antiquewhite;
 }
