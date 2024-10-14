@@ -35,8 +35,8 @@ h1 {
     font-family:'dancing script';
 }
 .form-container {
-    padding: 30px;
-    background: none;
+    padding: 15px 20px;
+    background-color: rgb(240, 244, 242);
     border-radius: 10px;
     justify-content: center;
     box-shadow: 0px 20px 60px rgba(39, 33, 66, 0.5);
@@ -49,9 +49,10 @@ form {
 }
 .hint {
     line-height: 1.5;
-    font-size: 12px;
+    font-size: 14px;
     margin-top: 5px;
     opacity: 0.6;
+    color: rgb(35, 35, 34);
 }
 
 .instructions {
