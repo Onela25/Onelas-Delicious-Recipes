@@ -1,5 +1,10 @@
 alert("I hope you have all your ingredients! Are you ready to cook?");
 
+document.addEventListener("DOMContentLoaded", function() {
+    let recipeFormElement = document.querySelector("#recipe-generator-form");
+    recipeFormElement.addEventListener("submit", generateRecipe);
+});
+
 function displayRecipe(response) {
     const typewriter = new Typewriter('#recipe', {
         autoStart: true,
@@ -7,7 +12,6 @@ function displayRecipe(response) {
         cursor: "",
     });
 
-    
     if (response.data && response.data.answer) {
         typewriter
             .typeString(response.data.answer)
@@ -24,7 +28,7 @@ function generateRecipe(event) {
     alert("Generating recipe... please wait");
 
     const apiKey = "307c2540doab8f13b37004f7fdft20c1";
-    const ingredient = document.querySelector("#ingredient-input").value;
+    const ingredient = document.querySelector("#ingredient-input").value; 
     const prompt = `Suggest a simple recipe using ${ingredient}.`;
     const context = "You are a hungry person looking for a quick recipe suggestion.";
     const apiURL = `https://api.shecodes.io/ai/v1/generate?prompt=${encodeURIComponent(prompt)}&context=${encodeURIComponent(context)}&key=${apiKey}`;
@@ -40,5 +44,4 @@ function generateRecipe(event) {
         });
 }
 
-let recipeFormElement = document.querySelector("#recipe-generator-form");
-recipeFormElement.addEventListener("submit", generateRecipe);
+
