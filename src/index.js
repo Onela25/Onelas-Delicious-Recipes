@@ -15,6 +15,7 @@ function displayRecipe(response) {
     if (response.data && response.data.answer) {
         typewriter
             .typeString(response.data.answer)
+            .typeString("<br><strong>SheCodes AI</strong>")
             .start();
     } else {
         console.error("No recipe found in the response.");
