@@ -4,6 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
     <link rel="stylesheet" href="src/style.css">
@@ -16,12 +19,15 @@
     </header>
     <div class="container">
         <main>
+            <div class="form-container">
             <form id="recipe-generator-form">
-                <input type="text" id="ingredient-input" placeholder="Enter the starting ingredient of the recipe"
+                <input type="text" id="ingredient-input" placeholder="Enter the star ingredient of the recipe"
                     autofocus required autocomplete="off" class="instructions" />
                 <input type="submit" class="submit-button" />
             </form>
-            <div class="recipe" id="recipe"></div>
+            </div>
+            <div class="hint">i.e: Pilchard, Egg or Potato.</div>
+            <div class="recipe hidden" id="recipe" ></div>
         </main>
         <br />
         <footer>
