@@ -106,3 +106,18 @@ footer {
     color: rgb(174, 173, 170);
     margin-bottom: 30px;
 }
+.generating {
+    animation: blink-animation 1s steps(5, start) infinite;
+}
+
+@keyframes blink-animation {
+    to {
+        visibility: hidden;
+    }
+}
+
+@-webkit-keyframes blink-animation {
+    to {
+        visibility: hidden;
+    }
+}

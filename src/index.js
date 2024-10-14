@@ -26,7 +26,7 @@ function displayRecipe(response) {
 function generateRecipe(event) {
     event.preventDefault();
 
-    alert("Generating recipe... please wait");
+ 
 
     let apiKey = "307c2540doab8f13b37004f7fdft20c1";
     let ingredient = document.querySelector("#ingredient-input").value; 
@@ -34,10 +34,9 @@ function generateRecipe(event) {
     let context = "You are a hungry person looking for a quick recipe suggestion.";
     let apiURL = `https://api.shecodes.io/ai/v1/generate?prompt=${encodeURIComponent(prompt)}&context=${encodeURIComponent(context)}&key=${apiKey}`;
     
-
     let recipeElement = document.querySelector("#recipe");
     recipeElement.classList.remove("hidden");
-
+    recipeElement.innerHTML = `<div class="generating">⌛Generating a Recipe for you about ${ingredient}</div>`;
 
     axios.get(apiURL)
         .then(response => {
@@ -49,5 +48,3 @@ function generateRecipe(event) {
             alert("Sorry, there was an error generating the recipe. Please try again.");
         });
 }
-
-
